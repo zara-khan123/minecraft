@@ -10,8 +10,8 @@ function player_update()
     fabric.Image.fromURL("player.png", function(Img){
     player_object = Img;
 
-    player_object.scaleToWidth(150);
-    player_object.scaleToWidt(140);
+    player_object.scaleToHeight(150);
+    player_object.scaleToWidth(140);
     player_object.set({
         top:player_y,
         left:player_x
@@ -56,9 +56,9 @@ if(keyPressed == '50'){
     up();
 
 }
-if(keyPressed == '113'){
+if(keyPressed == '81'){
     down();
-    
+    console.log("q");
 }
 if(keyPressed == '51'){
     right();
@@ -109,4 +109,36 @@ if(keyPressed == '83'){
 }   
 
 }   
-    
+function up(){
+    if(player_y >=0){
+        player_y= player_y - block_height;
+        canvas.remove(player_object);
+        player_update();
+    }
+
+}
+    function down()
+    {
+        if(player_y<=500){
+            player_y =  player_y + block_height;
+            canvas.remove(player_object);
+        player_update();
+        }
+
+    }
+    function left(){
+        if(player_x>0){
+            player_x = player_x- block_width;
+            canvas.remove(player_object);
+        player_update();
+        }
+
+    }
+    function right(){
+        if(player_x>0){
+            player_x = player_x + block_width;
+            canvas.remove(player_object);
+        player_update();
+        }
+
+    }
